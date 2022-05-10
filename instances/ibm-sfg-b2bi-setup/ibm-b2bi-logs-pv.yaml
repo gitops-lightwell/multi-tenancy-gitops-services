@@ -1,0 +1,17 @@
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  annotations:
+    argocd.argoproj.io/sync-wave: "270"
+  name: logs
+  labels:
+    intent: logs
+spec:
+  storageClassName: "ibmc-file-gold"
+  capacity:
+    storage: 500Mi
+  accessModes:
+    - ReadWriteMany
+  nfs:
+    server: fsf-wdc0601f-fz.adn.networklayer.com
+    path: /IBM02SEV2071092_107282/data01/logs
