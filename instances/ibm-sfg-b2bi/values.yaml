@@ -147,7 +147,7 @@ ibm-sfg-prod:
       extraPorts:
         - name: lwfw
           port: 5680
-          targetPort: 5680
+          targetPort: http
           protocol: TCP
         - name: lwfw-portal-soap
           port: 5580
