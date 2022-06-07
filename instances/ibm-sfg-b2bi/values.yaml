@@ -148,10 +148,12 @@ ibm-sfg-prod:
         - name: lwfw
           port: 5680
           targetPort: http
+          nodePort: 30004
           protocol: TCP
         - name: lwfw-portal-soap
           port: 5580
           targetPort: http
+          nodePort: 30005
           protocol: TCP
         #-name: http-1
         # port: 46000
