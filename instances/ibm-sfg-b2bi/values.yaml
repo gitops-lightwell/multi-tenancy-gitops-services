@@ -45,7 +45,7 @@ ibm-sfg-prod:
     fsGroup: 1010
     runAsUser: 1010
   dataSetup:
-    enabled: false
+    enabled: true
     upgrade: false
   env:
     tz: "UTC"
@@ -73,7 +73,7 @@ ibm-sfg-prod:
     dbPort: 50000
     dbData: B2BIDB
     dbDrivers: db2jcc4.jar
-    dbCreateSchema: false
+    dbCreateSchema: true
     # Name of DB secret
     dbSecret: b2b-db-secret
     #Provide the admin email address
@@ -89,14 +89,15 @@ ibm-sfg-prod:
     jmsConnectionFactory: com.ibm.mq.jms.MQQueueConnectionFactory
     jmsConnectionFactoryInstantiator:
     jmsQueueName: DEV.QUEUE.1
-    jmsHost: 172.21.147.45
+    jmsHost: 172.21.118.156
     jmsPort: 1414
-    jmsConnectionNameList: 172.21.147.45(1414)
+    jmsConnectionNameList: 172.21.118.156(1414)
     jmsEnableSsl: false
     jmsChannel: DEV.APP.SVRCONN
     # Name of JMS secret if available
     jmsSecret: b2b-jms-secret
     SANDBOX_LAUNCH_CLA2_SERVER: true
+    SANDBOX_SITE_REQUEST: false
     #SANDBOX_WEBAPP_PROTOCOL: https
     #SANDBOX_WEBAPP_LIST_PORT: 5001
   asi:
@@ -143,7 +144,15 @@ ibm-sfg-prod:
           targetPort: soassl
           nodePort: 30003
           protocol: TCP
-      extraPorts: []
+      extraPorts:
+        - name: lwfw
+          port: 5680
+          targetPort: 5680
+          protocol: TCP
+        - name: lwfw-portal-soap
+          port: 5580
+          targetPort: http
+          protocol: TCP
         #-name: http-1
         # port: 46000
         # targetPort: http
@@ -151,7 +160,7 @@ ibm-sfg-prod:
         # protocol: TCP
     backendService:
   #    type: NodePort
-      type: LoadBalancer
+      type: ClusterIP
       ports:
       - name: adapter-1
         port: 30201
@@ -207,7 +216,7 @@ ibm-sfg-prod:
         # nodePort: 30200
         # protocol: TCP
     backendService:
-      type: LoadBalancer
+      type: ClusterIP
       ports:
         - name: adapter-1
           port: 30401
