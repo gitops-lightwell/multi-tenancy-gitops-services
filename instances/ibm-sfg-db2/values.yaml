@@ -13,6 +13,7 @@ ibm-sfg-db2:
     repository: ibmcom/db2:11.5.7.0
     pullPolicy: IfNotPresent
   storageClassName: ibmc-block-gold
+  resourcesStorage: 50Gi
 
   service:
     name: db2-lb
