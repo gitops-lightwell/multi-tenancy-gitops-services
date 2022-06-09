@@ -145,11 +145,11 @@ ibm-sfg-prod:
           nodePort: 30003
           protocol: TCP
       extraPorts:
-        - name: lwfw
-          port: 5680
-          targetPort: 5680
-          nodePort: 30004
-          protocol: TCP
+        # - name: lwfw
+        #   port: 5680
+        #   targetPort: 5680
+        #   nodePort: 30004
+        #   protocol: TCP
         - name: lwfw-portal-soap
           port: 5580
           targetPort: 5580
