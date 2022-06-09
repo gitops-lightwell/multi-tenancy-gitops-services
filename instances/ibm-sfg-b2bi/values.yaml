@@ -45,7 +45,7 @@ ibm-sfg-prod:
     fsGroup: 1010
     runAsUser: 1010
   dataSetup:
-    enabled: true
+    enabled: false
     upgrade: false
   env:
     tz: "UTC"
@@ -73,7 +73,7 @@ ibm-sfg-prod:
     dbPort: 50000
     dbData: B2BIDB
     dbDrivers: db2jcc4.jar
-    dbCreateSchema: true
+    dbCreateSchema: false
     # Name of DB secret
     dbSecret: b2b-db-secret
     #Provide the admin email address
@@ -150,7 +150,7 @@ ibm-sfg-prod:
         #   targetPort: 5680
         #   nodePort: 30004
         #   protocol: TCP
-        - name: lwfw-portal-soap
+        - name: lwfw-soap
           port: 5580
           targetPort: 5580
           nodePort: 30005
