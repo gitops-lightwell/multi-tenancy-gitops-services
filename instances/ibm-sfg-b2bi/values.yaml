@@ -144,7 +144,7 @@ ibm-sfg-prod:
           targetPort: soassl
           nodePort: 30003
           protocol: TCP
-      extraPorts: []
+      extraPorts:
         - name: lwfw-soap
           port: 5580
           targetPort: 5580
