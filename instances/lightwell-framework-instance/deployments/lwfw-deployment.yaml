@@ -42,4 +42,4 @@ spec:
         - name: lw-data
           persistentVolumeClaim:
             claimName: lwfw-files
-  serviceName: lwfw
+  # serviceName: lwfw
