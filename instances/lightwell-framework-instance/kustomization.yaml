@@ -5,7 +5,8 @@ resources:
 - secrets/lw-app-prop-secret.yaml
 - services/lwfw-portal-soap-service.yaml
 - services/lwfw-service.yaml
-- statefulsets/lwfw-statefulset.yaml
+#- statefulsets/lwfw-statefulset.yaml
+#- deployments/lwfw-deployment.yaml
 
 generatorOptions:
  disableNameSuffixHash: true
